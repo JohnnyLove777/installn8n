@@ -86,8 +86,8 @@ EOF
     # Solicita e instala certificados SSL usando Certbot
     sudo certbot --nginx --email $EMAIL_INPUT --redirect --agree-tos -d n8n.$DOMINIO_INPUT
 
-    # Instalação e execução do n8n usando Docker
-    docker run -it --rm --name n8n \
+    # Instalação e execução do n8n usando Docker em segundo plano (detached)
+    docker run -d --name n8n \
     -p 5678:5678 \
     -v n8n_data:/home/node/.n8n \
     docker.n8n.io/n8nio/n8n \
